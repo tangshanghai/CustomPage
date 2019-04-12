@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>分页工具</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background: #333333;
+        }
+        .testbox{
+            position: absolute;
+            right: 10%;
+            width: 900px;
+            height: 600px;
+        }
+        .testbox img{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+<button id="testbtn">测试</button>
+<div id="testbox">
+    
+</div>
+<script type="text/javascript" src="CustomPage.js"></script></body>
+<script>
+var btn = document.getElementById('testbtn');
+let box = document.getElementById('testbox');
+btn.addEventListener('click',btnclickHandler);
+
+let page = new CustomPage([10,15,20,30]);
+page.callback = function (curpage,rowNum){
+    console.log(curpage,rowNum)
+}
+box.appendChild(page.root);
+function btnclickHandler(event){
+ page.setPage(4,75);
+}
+</script>
+
+</html>
