@@ -43,8 +43,15 @@ page.callback = function (curpage,rowNum){
     console.log(curpage,rowNum)
 }
 box.appendChild(page.root);
+let count = 0;
 function btnclickHandler(event){
- page.setPage(4,75);
+    if(count%2==0){
+        page.setPage(4,75);
+    }else{
+        page.setPage(1,0);
+    }
+    
+    count++;
 }
 </script>
 

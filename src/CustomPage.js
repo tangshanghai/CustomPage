@@ -68,9 +68,10 @@ class CustomPage{
     /**
      * 设置当前页和总条数
      */
-    setPage(curPage,total){
-        this.totalNum = total || this.totalNum;
+    setPage(curPage,total=0){
+        this.totalNum = total;
         let maxPage = Math.ceil(this.totalNum/this.rowNum);
+        maxPage = Math.max(1,maxPage);
         let minPage = 1;
         curPage = Math.min(curPage,maxPage);
         curPage = Math.max(curPage,minPage);
